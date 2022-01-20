@@ -1,0 +1,292 @@
+/*
+### Variables
+*/
+
+$strongCyan: #26c0ab;
+$veryDarkCyan: hsl(183, 100%, 15%);
+$darkGrayishCyan: #7f9c9f;
+$lightGrayishCyan: #c5e4e7;
+$white: #ffffff;
+
+/*
+### Global Styles
+*/
+
+html {
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $lightGrayishCyan;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 80px auto;
+    @media(max-width: 720px) {
+        max-width: 400px;
+    }
+}
+
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// Input / Label Styling
+%label-style {
+    color: $darkGrayishCyan;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+%input-style {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    color: $veryDarkCyan;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: lighten($lightGrayishCyan, 10%);
+    cursor: pointer;
+    border: 2px solid transparent;
+    background-repeat: no-repeat;
+    text-align: right;
+    background-position: 10px 12px;
+    &::-webkit-input-placeholder {
+        color: $darkGrayishCyan;
+    }
+    &:focus {
+        outline: none;
+        border-color: $strongCyan;
+    }
+}
+
+
+/*
+### Styling
+*/
+
+// Heading
+header h1 {
+    text-transform: uppercase;
+    color: $veryDarkCyan;
+    letter-spacing: 10px;
+    margin: 60px auto;
+    width: fit-content;
+}
+
+// Main Box
+.split-main-box {
+    margin: 0 30px;
+    background-color: $white;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    @media (max-width: 720px) {
+        flex-direction: column;
+    }
+    // Inherited Styles
+    %inherited {
+        width: 47%;
+        @media(max-width: 720px) {
+            width: 100%;
+        }
+    }
+    .data-reciever {
+        margin-right: 6%;
+        @extend %inherited;
+        .bill {
+            margin-bottom: 40px;
+            label {
+                @extend %label-style;
+            }
+            input {
+                @extend %input-style;
+                background-image: url('images/icon-dollar.svg');
+            }
+        }
+        .tip-selection {
+            .tip-selection-heading {
+                @extend %label-style;
+                width: 100%;
+            }
+            .tip-percentage-container {
+                margin-bottom: 20px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                .tip-percentage {
+                    margin: 5px;
+                    padding: 10px 20px;
+                    color: $white;
+                    background-color: $veryDarkCyan;
+                    border-radius: 5px;
+                    text-align: center;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease-in-out;
+                    &:last-child {
+                        background-color: $lightGrayishCyan;
+                        color: $veryDarkCyan;
+                    }
+                    &:hover {
+                        background-color: $lightGrayishCyan;
+                        color: $veryDarkCyan;
+                    }
+                }
+                .custom {
+                    @extend %input-style;
+                    margin: 5px;
+                    text-align: center;
+                    font-size: 18px;
+                    padding: 0;
+                    width: 105.93px;
+                    border-radius: 5px;
+                    padding: 0 5px;
+                    &:focus {
+                        text-align: right;
+                        &::placeholder {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .people-number {
+            .labels {
+                display: flex;
+                justify-content: space-between;
+                label {
+                    @extend %label-style;
+                    &:last-of-type {
+                        color: #ec6e6e;
+                        opacity: 0;
+                    }
+                }
+            }
+            input {
+                @extend %input-style;
+                background-image: url('images/icon-person.svg');
+            }
+        }
+    }
+    .data-viewer {
+        @extend %inherited;
+        padding: inherit;
+        border-radius: inherit;
+        background-color: $veryDarkCyan;
+        color: $lightGrayishCyan;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .upper-data {
+            .tip-amount {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                .tip-amount-left-part {
+                    .per-person {
+                        color: $darkGrayishCyan;
+                    }
+                }
+                .tip-amount-right-part {
+                    color: $strongCyan;
+                    font: {
+                        size: 40px;
+                        weight: bold
+                    }
+                }
+            }
+        }
+        .reset-btn {
+            .reset {
+                padding: 15px 30px;
+                width: 100%;
+                background-color: $strongCyan;
+                color: $veryDarkCyan;
+                border: none;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                text-transform: uppercase;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: $lightGrayishCyan;
+                }
+            }
+        }
+        @media(max-width:720px) {
+            margin-top: 50px;
+        }
+    }
+}
+
+
+/* Usage Info Styling */
+
+.usage-info {
+    position: fixed;
+    background-color: rgba(black, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    color: $darkGrayishCyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s ease;
+    .content {
+        background-color: $white;
+        width: fit-content;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: right;
+        span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            background-color: $darkGrayishCyan;
+            color: $lightGrayishCyan;
+            padding: 5px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.4s ease-in-out;
+            &:hover {
+                background-color: darken($darkGrayishCyan, 20%);
+            }
+        }
+        h2,
+        p {
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        p {
+            font: {
+                size: 17px;
+                weight: bold;
+            }
+        }
+    }
+}

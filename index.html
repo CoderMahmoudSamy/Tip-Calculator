@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Tip calculator app</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+    <div class="usage-info">
+        <div class="content">
+            <span>X</span>
+            <h2>Attention!</h2>
+            <p>Please fill the fields then select the tip value!</p>
+        </div>
+    </div>
+
+    <section class="container">
+        <header>
+            <h1><img src="images/logo.svg" alt="Logo"></h1>
+        </header>
+        <div class="split-main-box">
+            <div class="left data-reciever">
+                <div class="bill">
+                    <label for="bill-amount">Bill</label>
+                    <input name="bill-amount" type="number" placeholder="" />
+                </div>
+                <div class="tip-selection">
+                    <label class="tip-selection-heading">Select Tip %</label>
+                    <div class="tip-percentage-container">
+                        <div class="tip-percentage">5%</div>
+                        <div class="tip-percentage">10%</div>
+                        <div class="tip-percentage">15%</div>
+                        <div class="tip-percentage">25%</div>
+                        <div class="tip-percentage">50%</div>
+                        <input class=" custom" placeholder="Custom" type="number" />
+                    </div>
+                </div>
+                <div class="people-number">
+                    <div class="labels">
+                        <label for="people-number">Number Of People</label>
+                        <label for="people-number">Can't Be Zero</label>
+                    </div>
+                    <input name="people-number" type="number" placeholder="" />
+                </div>
+            </div>
+            <div class="right data-viewer">
+                <div class="upper-data">
+
+                    <div class="tip-amount">
+                        <div class="tip-amount-left-part">
+                            <span class="tip-label">Tip Amount <br/> <span class="per-person">/ person</span></span>
+                        </div>
+                        <div class="tip-amount-right-part">
+                            $0.00
+                        </div>
+                    </div>
+                    <div class="tip-amount total">
+                        <div class="tip-amount-left-part">
+                            <span class="tip-label">Total <br/> <span class="per-person">/ person</span></span>
+                        </div>
+                        <div class="tip-amount-right-part">
+                            $0.00
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-btn">
+                    <button class="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
